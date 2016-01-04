@@ -4,8 +4,9 @@
 #	Steve Losh's zsh theme - http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
 
 # battery status from http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
+# make sure BATTERY_SCRIPT is an environment variable pointing to the battery.py file
 function _battery_status() {
-	echo `/Users/neel/scripts/battery.py` 2>/dev/null
+	echo `$BATTERY_SCRIPT` 2>/dev/null
 }
 
 function _prompt_char() {
@@ -35,7 +36,7 @@ PROMPT='%{%f%k%b%}
 %{%K{${bkg}}%B%F{green}%}%n%{%B%F{red}%}[∴]%{%B%F{blue}%}%m%{%B%F{green}%} %{%b%F{yellow}%K{${bkg}}%}%~%{%B%F{green}%}$(git_prompt_info)%E%{%f%k%b%}
 %{%K{${bkg}}%}$(_prompt_char)%{%K{${bkg}}%B%F{cyan}%} %\Ø%{%f%k%b%} '
 
-#RPROMPT='$(_battery_status)'
-#RPROMPT='$(_battery_status)%{%f%k%b%}'
-#RPROMPT='!%{%B%F{cyan}%}%!%{%f%k%b%}'
-RPROMPT='%{%F{blue}%}%@ - %D{%B %d}%{%f%k%b%}'
+#RPROMPT='$(_battery_status)'						# This line displays battery status on right prompt
+#RPROMPT='$(_battery_status)%{%f%k%b%}'				# This line displays battery status on right prompt
+#RPROMPT='!%{%B%F{cyan}%}%!%{%f%k%b%}'				# This line shows history number on right prompt
+RPROMPT='%{%F{blue}%}%@ - %D{%B %d}%{%f%k%b%}'		# This line displays time and date on right prompt
